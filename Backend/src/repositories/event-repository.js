@@ -24,6 +24,19 @@ class EventRepository {
       throw new Error("Error fetching events: " + error.message);
     }
   }
+
+  async update(eventId, updateData) {
+    try {
+      const updatedEvent = await this.Event.findByIdAndUpdate(
+        eventId,
+        updateData,
+        { new: true }
+      ).populate("profiles");
+      return updatedEvent;
+    } catch (error) {
+      throw new Error("Error updating event: " + error.message);
+    }
+  }
 }
 
 module.exports = EventRepository;

@@ -72,7 +72,7 @@ export default function ProfileDropdown({ selected, setSelected }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="w-[520px]">
+        <Button variant="outline" className="w-full">
           {selected.length ? `${selected.length} selected` : "Select profiles"}
         </Button>
       </PopoverTrigger>
@@ -91,7 +91,7 @@ export default function ProfileDropdown({ selected, setSelected }) {
                   key={p._id}
                   onSelect={() => toggleSelect(p._id)}
                 >
-                  <div className="flex items-center justify-between w-full">
+                  <div className="flex items-start justify-between w-full">
                     <span>{p.name}</span>
 
                     {selected.includes(p._id) && (

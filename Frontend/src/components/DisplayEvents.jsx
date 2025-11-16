@@ -28,7 +28,7 @@ function DisplayEvents() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-1/2 ml-auto">
       <h2 className="text-lg font-bold">View Events</h2>
       {events &&
         events.map((event) => (

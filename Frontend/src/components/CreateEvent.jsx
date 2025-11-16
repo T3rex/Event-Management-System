@@ -65,7 +65,7 @@ function CreateEvent() {
   }, [startDate]);
 
   return (
-    <div className=" flex flex-col gap-5 p-4 font-bold rounded-xl shadow-2xl bg-gray-100 h-fit">
+    <div className=" flex flex-col gap-5 p-4 font-bold border-2 mt-6 rounded-xl shadow-2xl bg-gray-100 h-fit">
       <h2>Create Event</h2>
       <div>
         <p>Profile</p>

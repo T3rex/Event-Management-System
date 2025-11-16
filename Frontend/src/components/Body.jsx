@@ -4,7 +4,7 @@ import DisplayEvents from "./DisplayEvents";
 
 function Body() {
   return (
-    <div className="w-3/4 flex justify-evenly align-middle gap-20">
+    <div className="w-3/4 flex justify-evenly">
       <CreateEvent />
       <DisplayEvents />
     </div>

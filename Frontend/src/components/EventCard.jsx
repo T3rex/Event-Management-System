@@ -4,10 +4,12 @@ import { SlCalender } from "react-icons/sl";
 import { IoMdTime } from "react-icons/io";
 import TzCommand from "./TzCommand";
 import dayjs from "../utils/dayjsConfig";
+import { Button } from "@/components/ui/button";
+import UpdateDialog from "./UpdateDialog";
 
 function EventCard({ event }) {
   const [selectedTimezone, setSelectedTimezone] = useState(event.timezone);
-
+  // Convert UTC times to selected timezone
   const startLocal = dayjs.utc(event.startUTC).tz(selectedTimezone);
   const endLocal = dayjs.utc(event.endUTC).tz(selectedTimezone);
   const createdAtLocal = dayjs.utc(event.createdAtUTC).tz(selectedTimezone);
@@ -29,7 +31,7 @@ function EventCard({ event }) {
             <div>Start: {startLocal.format("ddd, MMM DD, YYYY")}</div>
             <div className="flex justify-start items-center gap-1">
               <IoMdTime size={20} />
-              {startLocal.format("hh:mm A")}
+              {startLocal.format("HH:mm:ss")}
             </div>
           </div>
         </div>
@@ -41,7 +43,7 @@ function EventCard({ event }) {
             <div>End: {endLocal.format("ddd, MMM DD, YYYY")}</div>
             <div className="flex justify-start items-center gap-1">
               <IoMdTime size={20} />
-              {endLocal.format("hh:mm A")}
+              {endLocal.format("HH:mm:ss")}
             </div>
           </div>
         </div>
@@ -58,9 +60,17 @@ function EventCard({ event }) {
       </div>
 
       {/* Timezone Picker */}
-      <div className="flex flex-col items-start gap-2">
-        <div className="font-semibold">Timezone</div>
-        <TzCommand value={selectedTimezone} onChange={setSelectedTimezone} />
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-start gap-2">
+          <div className="font-semibold">Timezone</div>
+          <TzCommand value={selectedTimezone} onChange={setSelectedTimezone} />
+        </div>
+        <div className="flex flex-col items-start gap-2">
+          {/* <Button variant="default" size="lg" className="cursor-pointer">
+            Update
+          </Button> */}
+          <UpdateDialog event={event} />
+        </div>
       </div>
     </div>
   );

@@ -10,10 +10,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import dayjs from "../utils/dayjsConfig";
 
 export default function DateTimePicker({ date, setDate, minDate, disabled }) {
   const [open, setOpen] = useState(false);
-  const [time, setTime] = useState("12:00:00");
+  const [time, setTime] = useState(
+    date ? dayjs(date).format("HH:mm:ss") : "12:00:00"
+  );
   const [disabledTime, setDisabledTime] = useState(false);
 
   const isSameDay =

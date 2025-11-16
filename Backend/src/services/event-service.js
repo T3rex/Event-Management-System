@@ -25,5 +25,16 @@ class EventService {
       );
     }
   }
+  async updateEvent(eventId, updateData) {
+    try {
+      const updatedEvent = await this.eventRepository.update(
+        eventId,
+        updateData
+      );
+      return updatedEvent;
+    } catch (error) {
+      throw new Error("Error in EventService updateEvent: " + error.message);
+    }
+  }
 }
 module.exports = EventService;

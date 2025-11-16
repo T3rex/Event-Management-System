@@ -10,10 +10,12 @@ function Header() {
         <h1 className="text-3xl">Event Management System</h1>
         <p>Manage your events efficiently</p>
       </div>
-      <ProfileDropdown
-        selected={currentProfiles}
-        setSelected={setCurrentProfiles}
-      />
+      <div>
+        <ProfileDropdown
+          selected={currentProfiles}
+          setSelected={setCurrentProfiles}
+        />
+      </div>
     </div>
   );
 }

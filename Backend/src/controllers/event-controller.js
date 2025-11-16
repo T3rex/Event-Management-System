@@ -26,7 +26,19 @@ async function getEvents(req, res) {
   }
 }
 
+async function updateEvent(req, res) {
+  try {
+    const eventId = req.params.id;
+    const updateData = req.body;
+    const updatedEvent = await eventService.updateEvent(eventId, updateData);
+    res.status(200).json({ success: true, data: updatedEvent });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+}
+
 module.exports = {
   createEvent,
   getEvents,
+  updateEvent,
 };
