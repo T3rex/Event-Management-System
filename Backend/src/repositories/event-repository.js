@@ -1,0 +1,18 @@
+const { Event } = require("../models/index");
+
+class EventRepository {
+  constructor() {
+    this.Event = Event;
+  }
+
+  async create(data) {
+    try {
+      const event = await this.Event.create(data);
+      return event;
+    } catch (error) {
+      throw new Error("Error creating event: " + error.message);
+    }
+  }
+}
+
+module.exports = EventRepository;
