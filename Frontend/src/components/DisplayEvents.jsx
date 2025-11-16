@@ -28,7 +28,8 @@ function DisplayEvents() {
   };
 
   return (
-    <div>
+    <div className="w-full">
+      <h2>View Events</h2>
       {events &&
         events.map((event) => (
           <div key={event._id}>

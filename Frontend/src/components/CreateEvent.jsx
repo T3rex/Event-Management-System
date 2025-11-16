@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useProfile from "../store/profileStore";
 import ProfileDropdown from "./ProfileDropdown";
-import TzDropdown from "./TzDropdown";
+import TzCommand from "./TzCommand";
 import DateTimePicker from "./DateTimePicker";
 import { Button } from "@/components/ui/button";
 import dayjs from "../utils/dayjsConfig";
@@ -63,7 +63,7 @@ function CreateEvent() {
       </div>
       <div>
         <p>Timezone</p>
-        <TzDropdown selectedTz={selectedTz} setSelectedTz={setSelectedTz} />
+        <TzCommand value={selectedTz} onChange={setSelectedTz} />
       </div>
       <div className="flex gap-5">
         <div className="text-center">

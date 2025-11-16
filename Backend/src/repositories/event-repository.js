@@ -16,7 +16,9 @@ class EventRepository {
 
   async getEventByProfileIds(profileIds) {
     try {
-      const events = await this.Event.find({ profiles: { $in: profileIds } });
+      const events = await this.Event.find({
+        profiles: { $in: profileIds },
+      }).populate("profiles");
       return events;
     } catch (error) {
       throw new Error("Error fetching events: " + error.message);
