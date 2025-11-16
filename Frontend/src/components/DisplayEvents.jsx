@@ -29,7 +29,7 @@ function DisplayEvents() {
 
   return (
     <div className="w-full">
-      <h2>View Events</h2>
+      <h2 className="text-lg font-bold">View Events</h2>
       {events &&
         events.map((event) => (
           <div key={event._id}>

@@ -24,10 +24,23 @@ function CreateEvent() {
       alert("Please fill in all fields");
       return;
     }
+
     payload.profiles = selectedProfiles;
     payload.timezone = selectedTz;
-    payload.startUTC = dayjs(startDate).tz(selectedTz).utc().toISOString();
-    payload.endUTC = dayjs(endDate).tz(selectedTz).utc().toISOString();
+
+    const formattedStart = dayjs(startDate).format("YYYY-MM-DD HH:mm:ss");
+    const formattedEnd = dayjs(endDate).format("YYYY-MM-DD HH:mm:ss");
+
+    payload.startUTC = dayjs
+      .tz(formattedStart, "YYYY-MM-DD HH:mm:ss", selectedTz)
+      .utc()
+      .toISOString();
+
+    payload.endUTC = dayjs
+      .tz(formattedEnd, "YYYY-MM-DD HH:mm:ss", selectedTz)
+      .utc()
+      .toISOString();
+
     console.log(payload);
 
     const response = await axios.post("/api/v1/event", payload);
@@ -38,6 +51,7 @@ function CreateEvent() {
       alert("Error creating event");
       console.error("Error creating event:", response.data.message);
     }
+
     setStartDate(undefined);
     setEndDate(undefined);
     setSelectedProfiles([]);
@@ -48,11 +62,10 @@ function CreateEvent() {
     if (startDate && endDate && startDate >= endDate) {
       setEndDate(undefined);
     }
-    console.log({ startDate, endDate });
   }, [startDate]);
 
   return (
-    <div className=" flex flex-col gap-5 p-4 font-bold rounded-xl shadow-2xl bg-gray-100">
+    <div className=" flex flex-col gap-5 p-4 font-bold rounded-xl shadow-2xl bg-gray-100 h-fit">
       <h2>Create Event</h2>
       <div>
         <p>Profile</p>
