@@ -13,6 +13,20 @@ async function createEvent(req, res) {
   }
 }
 
+async function getEvents(req, res) {
+  try {
+    const profileIds = req.query.profileIds
+      ? req.query.profileIds.split(",")
+      : [];
+    console.log("Fetching events for profile IDs:", profileIds);
+    const events = await eventService.getEventsByProfileIds(profileIds);
+    res.status(200).json({ success: true, data: events });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+}
+
 module.exports = {
   createEvent,
+  getEvents,
 };

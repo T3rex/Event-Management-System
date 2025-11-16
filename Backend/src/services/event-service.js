@@ -12,5 +12,18 @@ class EventService {
       throw new Error("Error in EventService createEvent: " + error.message);
     }
   }
+
+  async getEventsByProfileIds(profileIds) {
+    try {
+      const events = await this.eventRepository.getEventByProfileIds(
+        profileIds
+      );
+      return events;
+    } catch (error) {
+      throw new Error(
+        "Error in EventService getEventsByProfileIds: " + error.message
+      );
+    }
+  }
 }
 module.exports = EventService;
