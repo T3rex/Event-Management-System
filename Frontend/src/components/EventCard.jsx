@@ -12,8 +12,9 @@ function EventCard({ event }) {
   // Convert UTC times to selected timezone
   const startLocal = dayjs.utc(event.startUTC).tz(selectedTimezone);
   const endLocal = dayjs.utc(event.endUTC).tz(selectedTimezone);
-  const createdAtLocal = dayjs.utc(event.createdAtUTC).tz(selectedTimezone);
-  const updatedAtLocal = dayjs.utc(event.updatedAtUTC).tz(selectedTimezone);
+  const createdAtLocal = dayjs.utc(event.createdAt).tz(selectedTimezone);
+  const updatedAtLocal = dayjs.utc(event.updatedAt).tz(selectedTimezone);
+  console.log(event.createdAt, "createdAt", createdAtLocal);
 
   return (
     <div className="w-3/4 flex justify-between gap-4 mb-6 p-8 border border-gray-300 rounded-lg shadow-lg bg-gray-200">
