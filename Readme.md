@@ -45,25 +45,25 @@ repo/
 │ ├── config/
 │ ├── node_modules
 │ └── src
-│ ├── index.js
-│ ├── repositories/
-│ ├── models/
-│ ├── routes/
-│ ├── controllers/
-│ └── services/
+│   ├── index.js
+│   ├── repositories/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   └── services/
 │
 └── Frontend/
-├── components/
-├── lib/
-├── node_modules/
-├── public/
-└── src/
-│ ├── assets/
-│ ├── components/
-│ ├── config/
-│ ├── store/
-│ ├── utils/
-│ └── App.jsx
+│  ├── components/
+│  ├── lib/
+│  ├── node_modules/
+│  ├── public/
+│  └── src/
+│   ├── assets/
+│   ├── components/
+│   ├── config/
+│   ├── store/
+│   ├── utils/
+│   └── App.jsx
 ```
 
 ## ⬇️ Installation
