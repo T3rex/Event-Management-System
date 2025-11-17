@@ -147,16 +147,16 @@ You can now access the Event Management System in your web browser.
 
 ## 📖 API Endpoints
 
-| Method | Endpoint    | Description          |
-| ------ | ----------- | -------------------- |
-| GET    | `/profiles` | Get all profiles     |
-| POST   | `/profiles` | Create a new profile |
+| Method | Endpoint   | Description          |
+| ------ | ---------- | -------------------- |
+| GET    | `/profile` | Get all profiles     |
+| POST   | `/profile` | Create a new profile |
 
-| Method | Endpoint                   | Description                        |
-| ------ | -------------------------- | ---------------------------------- |
-| POST   | `/events`                  | Create event                       |
-| GET    | `/events?profileIds=p1,p2` | Fetch events for selected profiles |
-| PUT    | `/events/:id`              | Update event by ID                 |
+| Method | Endpoint                  | Description                        |
+| ------ | ------------------------- | ---------------------------------- |
+| POST   | `/event`                  | Create event                       |
+| GET    | `/event?profileIds=p1,p2` | Fetch events for selected profiles |
+| PUT    | `/event/:id`              | Update event by ID                 |
 
 ## 🔧 Future Improvements
 
