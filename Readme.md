@@ -9,7 +9,7 @@ A full-stack **event scheduling and timezone-aware calendar application** built 
 
 Users can create profiles, schedule events across multiple time zones, view them with instant timezone conversion, and update events on the frontend.
 
-### Live Demo: [https://event-management-system-38i4egsaw-t3rexs-projects.vercel.app/](https://event-management-system-38i4egsaw-t3rexs-projects.vercel.app/)
+### Live Demo: [https://event-management-system-swart-ten.vercel.app/](https://event-management-system-swart-ten.vercel.app/)
 
 ---
 
@@ -131,6 +131,7 @@ You can now access the Event Management System in your web browser.
 
 ## 🌍 Timezone Handling
 
+- User selects their timezone when creating an event.
 - All datetimes are stored in **UTC** in the database.
 - Example:
 
@@ -142,8 +143,13 @@ You can now access the Event Management System in your web browser.
 }
 ```
 
+- When fetching events, the backend returns the UTC times.
 - The frontend uses **dayjs with the timezone plugin** to convert and display event times in the user's local timezone.
 - This ensures consistency and accuracy across different user locations.
+
+```
+ LOCAL/SELECTED LOCAL TIMEZONE -> UTC -> STORED IN DB -> FETCHED AS UTC -> CONVERTED TO LOCAL/SELECTED TIMEZONE
+```
 
 ## 📖 API Endpoints
 
