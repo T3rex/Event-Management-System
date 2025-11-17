@@ -65,26 +65,34 @@ function CreateEvent() {
   }, [startDate]);
 
   return (
-    <div className=" flex flex-col gap-5 p-4 font-bold border-2 mt-6 rounded-xl shadow-2xl bg-gray-100 h-fit">
-      <h2>Create Event</h2>
-      <div>
-        <p>Profile</p>
+    <div className="flex flex-col gap-5 p-4 font-bold border-2 mt-6 rounded-xl shadow-2xl bg-gray-100 w-full max-w-xl mx-auto">
+      {/* Title */}
+      <h2 className="text-xl sm:text-2xl font-semibold">Create Event</h2>
+
+      {/* Profile */}
+      <div className="flex flex-col gap-1">
+        <p className="text-sm sm:text-base">Profile</p>
         <ProfileDropdown
           selected={selectedProfiles}
           setSelected={setSelectedProfiles}
         />
       </div>
-      <div>
-        <p>Timezone</p>
+
+      {/* Timezone */}
+      <div className="flex flex-col gap-1">
+        <p className="text-sm sm:text-base">Timezone</p>
         <TzCommand value={selectedTz} onChange={setSelectedTz} />
       </div>
-      <div className="flex gap-5">
-        <div className="text-center">
-          <p>Start time</p>
+
+      {/* Start & End Time */}
+      <div className="flex flex-col sm:flex-row gap-5">
+        <div className="flex-1 text-center sm:text-left">
+          <p className="text-sm sm:text-base mb-1">Start Time</p>
           <DateTimePicker date={startDate} setDate={setStartDate} />
         </div>
-        <div className="text-center">
-          <p>End time</p>
+
+        <div className="flex-1 text-center sm:text-left">
+          <p className="text-sm sm:text-base mb-1">End Time</p>
           <DateTimePicker
             date={endDate}
             setDate={setEndDate}
@@ -93,11 +101,14 @@ function CreateEvent() {
           />
         </div>
       </div>
-      <div>
-        <Button className="w-full cursor-pointer" onClick={handleCreateEvent}>
-          + Create Event
-        </Button>
-      </div>
+
+      {/* Button */}
+      <Button
+        className="w-full cursor-pointer text-base"
+        onClick={handleCreateEvent}
+      >
+        + Create Event
+      </Button>
     </div>
   );
 }

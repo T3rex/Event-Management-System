@@ -28,14 +28,18 @@ function DisplayEvents() {
   };
 
   return (
-    <div className="w-1/2 ml-auto">
-      <h2 className="text-lg font-bold">View Events</h2>
-      {events &&
-        events.map((event) => (
-          <div key={event._id}>
-            <EventCard event={event} />
-          </div>
-        ))}
+    <div className="w-full lg:w-full mt-6">
+      <h2 className="text-xl font-bold mb-4 text-center lg:text-left">
+        View Events
+      </h2>
+
+      <div className="flex flex-col gap-4">
+        {events && events.length > 0 ? (
+          events.map((event) => <EventCard key={event._id} event={event} />)
+        ) : (
+          <p className="text-gray-500 text-center">No events found</p>
+        )}
+      </div>
     </div>
   );
 }
